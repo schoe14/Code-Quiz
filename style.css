@@ -1,11 +1,63 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .navbar {
     background-color: aquamarine;
 }
 
 .container {
-    max-width: 960px;
-    text-align: center;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+#mainContainer {
+    max-width: 500px;
 }
 
-h3 {
+h3, p, form {
+    margin-bottom: 20px;
 }
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    /* background-color: white; */
+}
+
+button {
+    margin-top: 10px;
+}
+
+#quizPage, #currentScorePage, #highscoresPage {
+}
+#choicesGroup {
+  
+}
+#A, #B, #C, #D {
+    text-align: left;
+}
+/* 
+.choicesGroup.li {
+    height: 50px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: #ff5d88;
+    color: white;
+    font-size: 1.5em;
+    line-height: 1.5;
+  }
+  
+.choicesGroup.li::before {
+    content: "\200B";
+    position: absolute;
+  }
+  
+.choicesGroup.li::after {
+    content: " ";
+    display: block;
+    clear: both;
+  } */

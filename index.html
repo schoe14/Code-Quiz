@@ -12,7 +12,7 @@
 </head>
 
 <body onload="firstPageFunction()">
-    <nav class="navbar navbar-expand-lg navbar-light px-5">
+    <nav class="navbar navbar-expand-lg navbar-light px-5" id="header">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a class="nav-link" href="#" id="navLink">View Highscores</a>
@@ -21,39 +21,43 @@
         <span class="navbar-text" id="timeValue"></span>
     </nav>
 
-    <div class="container justify-content-center">
+    <div class="container justify-content-center" id="mainContainer">
         <div class="container" id="firstPage">
             <h3>Coding Quiz Challenge</h3>
-            <p>Click Start Quiz to start</p>
-            <button type="button" class="btn btn-primary btn-lg" id="startBtn">Start Quiz</button>
+            <p>Choose a topic for your quiz</p>
+            <button type="button" class="btn btn-primary btn-lg" id="startBtn">JavaScript</button>
+            <button type="button" class="btn btn-primary btn-lg" id="htmlBtn">HTML</button>
+            <button type="button" class="btn btn-primary btn-lg" id="cssBtn">CSS</button>
         </div>
         <div class="container" id="currentScorePage" style="display: none;">
             <h3>All done!</h3>
             <p id="currentScore"></p>
-            <label>Enter initials:</label>
-            <input type="text" id="userInput" />
-            <br>
+            <form id="userInput-form" method="POST">
+                <label for="userInput">Enter initials:</label>
+                <input type="text" name="userInput" id="userInput" placeholder="" />
+            </form>
             <button type="button" class="btn btn-primary btn-lg" id="submitBtn">Submit</button>
         </div>
         <div class="container" id="highscoresPage" style="display: none;">
             <h3>Highscores</h3>
-            <ol id="scoreList"></ol>
+            <ul id="scoreList"></ul>
             <button type="button" class="btn btn-primary btn-lg" id="goBackBtn">Go Back</button>
             <button type="button" class="btn btn-primary btn-lg" id="clearBtn">Clear</button>
         </div>
         <div class="container" id="quizPage" style="display: none;">
             <h3 id="question"></h3>
-            <div class="list-group" id="choicesGroup">
-                <a href="#" id="A" onclick="checkAnswer(q.choices[0])"></a>
-                <a href="#" id="B" onclick="checkAnswer(q.choices[1])"></a>
-                <a href="#" id="C" onclick="checkAnswer(q.choices[2])"></a>
-                <a href="#" id="D" onclick="checkAnswer(q.choices[3])"></a>
+            <ul id="choicesGroup">
+                <li><button id="A" data-index="1"></button></li>
+                <li><button id="B" data-index="2"></button></li>
+                <li><button id="C" data-index="3"></button></li>
+                <li><button id="D" data-index="4"></button></li>
                 <div id="checkAns" style="display: none"></div>
-            </div>
+            </ul>
         </div>
     </div>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <script src="./questions.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="./script.js"></script>
 
 </body>
