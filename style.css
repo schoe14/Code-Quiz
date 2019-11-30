@@ -1,18 +1,29 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+*, *::before, *::after {
+    box-sizing: border-box;
 }
 
 .navbar {
-    background-color: aquamarine;
+    background-color: #24292e;
+    font-family: 'Volkhov', serif;
 }
 
+nav .navbar-nav li a, #timeValue, i {
+    color: white !important;
+    padding: 5px;
+}
+
+/* a:, #timeValue {
+    color: beige;
+} */
+
 .container {
+    font-family: 'Public Sans', sans-serif;
+    color: #24292e;
     margin: 0 auto;
     margin-top: 40px;
     margin-bottom: 40px;
 }
+
 #mainContainer {
     max-width: 500px;
 }
@@ -31,14 +42,14 @@ button {
     margin-top: 10px;
 }
 
-#quizPage, #currentScorePage, #highscoresPage {
-}
-#choicesGroup {
-  
-}
+#quizPage, #currentScorePage, #highscoresPage {}
+
+#choicesGroup {}
+
 #A, #B, #C, #D {
     text-align: left;
 }
+
 /* 
 .choicesGroup.li {
     height: 50px;
