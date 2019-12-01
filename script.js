@@ -2,7 +2,7 @@ var navLinkEl = document.getElementById("navLink");
 var timeValueEl = document.getElementById("timeValue");
 
 var firstPageEl = document.getElementById("firstPage");
-var startBtn = document.getElementById("startBtn");
+var buttonsEl = document.getElementById("buttons");
 
 var currentScorePageEl = document.getElementById("currentScorePage");
 var currentScoreEl = document.getElementById("currentScore");
@@ -22,10 +22,21 @@ var choiceA = document.getElementById("A");
 var choiceB = document.getElementById("B");
 var choiceC = document.getElementById("C");
 var choiceD = document.getElementById("D");
+var correct = document.getElementById("correct");
 var checkAns = document.getElementById("checkAns");
 
 var timeInterval;
 var timeLeft;
+
+var lastQuestion;
+var runningQuestion = 0;
+
+var correctAns;
+
+// Remaining time is displayed in navbar
+function displayTime() {
+    timeValueEl.textContent = "Time: " + timeLeft;
+}
 
 // If View Highscores nav link is clicked, go to displayHighscores()
 navLinkEl.addEventListener("click", function () {
@@ -38,15 +49,29 @@ function firstPageFunction() {
     firstPageEl.style.display = "block";
     highscoresPageEl.style.display = "none";
     timeLeft = 75;
-    timeValueEl.innerHTML = "Time: " + timeLeft;
+    displayTime();
 }
 
-// If start button is clicked, timer starts and questions will be loaded
-startBtn.addEventListener("click", function (event) {
+// If one of the quiz buttons is clicked, timer starts and questions will be loaded
+buttonsEl.addEventListener("click", function (event) {
     event.preventDefault();
-    runningQuestion = 0;
-    timer();
-    renderQuestion();
+    let element = event.target;
+    if (element.matches("button") === true) {
+        if (element.innerHTML == "JavaScript") {
+            questions = questions1;
+        }
+        if (element.innerHTML == "HTML") {
+            questions = questions2;
+        }
+        if (element.innerHTML == "CSS") {
+            questions = questions3;
+        }
+        lastQuestion = questions.length - 1;
+        runningQuestion = 0;
+        correctAns = 0;
+        timer();
+        renderQuestion(questions, lastQuestion);
+    }
 });
 
 function timer() {
@@ -59,59 +84,51 @@ function timer() {
             clearInterval(timeInterval);
             displayScore();
         }
-    
         if (runningQuestion > lastQuestion) {
             clearInterval(timeInterval);
             displayScore();
         }
-        displayTime(); 
-
+        displayTime();
     }, 1000);
 }
 
-function displayTime() {
-    timeValueEl.textContent = "Time: " + timeLeft;
-}
-
-var lastQuestion = questions.length - 1;
-var runningQuestion = 0;
-
 // While time > 0 or questions left, render questions
-function renderQuestion() {
-
+function renderQuestion(questions, lastQuestion) {
     quizPageEl.style.display = "block";
     firstPageEl.style.display = "none";
-    var q = questions[runningQuestion];
-
+    let q = questions[runningQuestion];
     if (runningQuestion <= lastQuestion) {
-        question.innerHTML = runningQuestion+1 + ". " + q.title;
+        question.innerHTML = runningQuestion + 1 + ". " + q.title;
         choiceA.innerHTML = "1. " + q.choices[0];
         choiceB.innerHTML = "2. " + q.choices[1];
         choiceC.innerHTML = "3. " + q.choices[2];
         choiceD.innerHTML = "4. " + q.choices[3];
     }
-
+    correct.innerHTML = "Correct: " + correctAns;
 }
 
 // While users get to choose answer, check if the answer is correct
-// If answer is wrong, subtract 15 sec from the remaining time
+// If the answer is wrong, subtract 15 sec from the remaining time
 choicesGroup.addEventListener("click", function (event) {
     event.preventDefault();
-    let element = event.target.innerHTML;
-    console.log(element);
-    checkAns.style.display = "block";
-    if (element.substring(3) == questions[runningQuestion].answer) {
-        checkAns.innerHTML = "Correct!";
+    let element = event.target;
+    if (element.matches("button") === true) {
+        if (element.innerHTML.substring(3) == questions[runningQuestion].answer) {
+            correctAns++;
+            checkAns.innerHTML = "Correct!".fontcolor("green");
+        }
+        else {
+            checkAns.innerHTML = "Wrong!".fontcolor("red");
+            timeLeft -= 15;
+        }
+        checkAns.style.display = "block";
+
+        setTimeout(function () {
+            $('#checkAns').fadeOut('fast');
+        }, 1000);
+        runningQuestion++;
+        renderQuestion(questions, lastQuestion);
     }
-    else {
-        checkAns.innerHTML = "Wrong!";
-        timeLeft -= 15;
-    }
-    runningQuestion++;
-    setTimeout(function () {
-        $('#checkAns').fadeOut('fast');
-    }, 800);
-    renderQuestion();
 })
 
 // Displays a page that shows score for this run and takes user initials
@@ -145,8 +162,10 @@ submitBtn.addEventListener("click", function () {
         scoresArr = storedValues;
     }
 
+    // Push initials and score to the array and sort the array by descending order of scores
     scoresArr.push({ "name": scoreText, "score": timeLeft });
     scoresArr.sort((a, b) => (a.score < b.score) ? 1 : ((b.score < a.score) ? -1 : 0));
+
     userInputEl.value = "";
 
     localStorage.setItem("scores", JSON.stringify(scoresArr));
@@ -183,5 +202,6 @@ goBackBtn.addEventListener("click", function () {
 clearBtn.addEventListener("click", function () {
     event.preventDefault();
     localStorage.clear();
+    scoresArr = [];
     displayHighscores();
 })

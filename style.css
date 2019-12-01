@@ -1,5 +1,13 @@
-*, *::before, *::after {
-    box-sizing: border-box;
+@media only screen and (max-width: 330px) {
+    nav .navbar-nav li a, #timeValue, i {
+        font-size: small;
+    }
+}
+
+/* disable hover effect on touch devices */
+html.can-touch #choicesGroup .btn:hover{
+    background: none;
+    color: #24292e;
 }
 
 .navbar {
@@ -12,9 +20,40 @@ nav .navbar-nav li a, #timeValue, i {
     padding: 5px;
 }
 
-/* a:, #timeValue {
-    color: beige;
-} */
+.btn {
+    background-color: #555555;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.btn:focus, .btn:active {
+    outline: none !important;
+    box-shadow: none;
+}
+
+.btn:hover {
+    border: 2px solid #555555;
+    background-color: white;
+    color: #24292e;
+}
+
+#choicesGroup .btn {
+    text-align: left;
+    background-color: white;
+    color: #24292e;
+    border: 2px solid #555555;
+}
+
+#choicesGroup .btn:hover {
+    background-color: #555555;
+    color: white;
+}
 
 .container {
     font-family: 'Public Sans', sans-serif;
@@ -22,6 +61,10 @@ nav .navbar-nav li a, #timeValue, i {
     margin: 0 auto;
     margin-top: 40px;
     margin-bottom: 40px;
+}
+
+#firstPage {
+    text-align: center;
 }
 
 #mainContainer {
@@ -37,38 +80,3 @@ ul {
     padding: 0;
     /* background-color: white; */
 }
-
-button {
-    margin-top: 10px;
-}
-
-#quizPage, #currentScorePage, #highscoresPage {}
-
-#choicesGroup {}
-
-#A, #B, #C, #D {
-    text-align: left;
-}
-
-/* 
-.choicesGroup.li {
-    height: 50px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding: 5px;
-    background-color: #ff5d88;
-    color: white;
-    font-size: 1.5em;
-    line-height: 1.5;
-  }
-  
-.choicesGroup.li::before {
-    content: "\200B";
-    position: absolute;
-  }
-  
-.choicesGroup.li::after {
-    content: " ";
-    display: block;
-    clear: both;
-  } */

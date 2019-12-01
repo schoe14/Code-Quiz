@@ -1,4 +1,4 @@
-var questions = [
+var questions1 = [
     {
         title: "The unordered collection of properties, each of which has a name and a value is called",
         choices: ["String", "Object", "Serialized Object", "All of the mentioned"],
@@ -38,13 +38,13 @@ var questions2 = [
     },
     {
         title: "Which of the following tag is used to mark a begining of paragraph?",
-        choices: ["<TD>", "<br>", "<P>", "<TR>"],
-        answer: "<P>"
+        choices: ["&lt;TD&gt;", "&lt;br&gt;", "&lt;P&gt;", "&lt;TR&gt;"],
+        answer: "&lt;P&gt;"
     },
     {
-        title: "The attribute of <form> tag",
-        choices: ["Method", "Action", "Both (a)&(b)", "None of these"],
-        answer: "Both (a)&(b)"
+        title: "The attribute of &lt;form&gt; tag",
+        choices: ["Method", "Action", "Both (a)&amp;(b)", "None of these"],
+        answer: "Both (a)&amp;(b)"
     },
     {
         title: "Markup tags tell the web browser",
@@ -67,8 +67,8 @@ var questions3 = [
     },
     {
         title: "Where in an HTML document is the correct place to refer to an external style sheet?",
-        choices: ["At the end of the document", "In the <head> section", "At the top of the document", "In the <body> section"],
-        answer: "In the <head> section"
+        choices: ["At the end of the document", "In the &lt;head&gt; section", "At the top of the document", "In the &lt;body&gt; section"],
+        answer: "In the &lt;head&gt; section"
     },
     {
         title: "Which is the correct CSS syntax?",

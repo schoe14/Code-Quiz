@@ -28,9 +28,23 @@
         <div class="container" id="firstPage">
             <h3>Coding Quiz Challenge</h3>
             <p>Choose a topic for your quiz</p>
-            <button type="button" class="btn btn-primary btn-lg" id="startBtn">JavaScript</button>
-            <button type="button" class="btn btn-primary btn-lg" id="htmlBtn">HTML</button>
-            <button type="button" class="btn btn-primary btn-lg" id="cssBtn">CSS</button>
+            <div id="buttons">
+                <button type="button" class="btn btn-primary btn-lg" id="javaScriptBtn">JavaScript</button>
+                <button type="button" class="btn btn-primary btn-lg" id="htmlBtn">HTML</button>
+                <button type="button" class="btn btn-primary btn-lg" id="cssBtn">CSS</button>
+            </div>
+        </div>
+        <div class="container" id="quizPage" style="display: none;">
+            <h3 id="question"></h3>
+            <ul id="choicesGroup">
+                <li><button type="button" class="btn" id="A"></button></li>
+                <li><button type="button" class="btn" id="B"></button></li>
+                <li><button type="button" class="btn" id="C"></button></li>
+                <li><button type="button" class="btn" id="D"></button></li>
+            </ul>
+            <div id="correct" style="margin-top: 10px"></div>
+            <br>
+            <div id="checkAns" style="display: none; border-top: solid 1px;"></div>
         </div>
         <div class="container" id="currentScorePage" style="display: none;">
             <h3>All done!</h3>
@@ -43,25 +57,22 @@
         </div>
         <div class="container" id="highscoresPage" style="display: none;">
             <h3>Highscores</h3>
-            <ul id="scoreList"></ul>
+            <ul id="scoreList" style="font-size: large;"></ul>
             <button type="button" class="btn btn-primary btn-lg" id="goBackBtn">Go Back</button>
             <button type="button" class="btn btn-primary btn-lg" id="clearBtn">Clear</button>
         </div>
-        <div class="container" id="quizPage" style="display: none;">
-            <h3 id="question"></h3>
-            <ul id="choicesGroup">
-                <li><button id="A" data-index="1"></button></li>
-                <li><button id="B" data-index="2"></button></li>
-                <li><button id="C" data-index="3"></button></li>
-                <li><button id="D" data-index="4"></button></li>
-                <div id="checkAns" style="display: none"></div>
-            </ul>
-        </div>
+
     </div>
 
     <script src="./questions.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="./script.js"></script>
+    <script>
+        document.addEventListener('touchstart', function addtouchclass(e) { // first time user touches the screen
+            document.documentElement.classList.add('can-touch') // add "can-touch" class to document root using classList API
+            document.removeEventListener('touchstart', addtouchclass, false) // de-register touchstart event
+        }, false)
+    </script>
 
 </body>
 
