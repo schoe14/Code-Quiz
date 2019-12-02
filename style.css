@@ -1,21 +1,22 @@
 @media only screen and (max-width: 330px) {
-    nav .navbar-nav li a, #timeValue, i {
+    nav .navbar-nav li a, .navbar-text {
         font-size: small;
     }
 }
 
 .navbar {
-    background-color: #24292e;
+    background-color: #222831;
     font-family: 'Volkhov', serif;
+    height: 60px;
 }
 
-nav .navbar-nav li a, #timeValue, i {
+nav .navbar-nav li a, .navbar-text {
     color: white !important;
     padding: 5px;
 }
 
 .btn {
-    background-color: #555555;
+    background-color: #393E46;
     border: none;
     color: white;
     text-align: center;
@@ -32,7 +33,7 @@ nav .navbar-nav li a, #timeValue, i {
 }
 
 .btn:hover {
-    border: 2px solid #555555;
+    border: 2px solid #393E46;
     background-color: white;
     color: #24292e;
 }
@@ -50,6 +51,7 @@ nav .navbar-nav li a, #timeValue, i {
 }
 
 /* suppress hover effect on devices that don't support hover fully */
+
 @media (hover:none), (hover:on-demand) {
     #choicesGroup .btn:hover {
         background: none;
@@ -84,4 +86,30 @@ h3, p, form {
 ul {
     list-style-type: none;
     padding: 0;
+}
+
+#highscoresPage li {
+    height: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 3px;
+    background-color: #6F9A8D;
+    color: white;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+#highscoresPage li:before {
+    content: "\200B";
+    position: absolute;
+}
+
+#highscoresPage li::after {
+    content: " ";
+    display: block;
+    clear: both;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
 }

@@ -1,5 +1,6 @@
 var navLinkEl = document.getElementById("navLink");
 var timeValueEl = document.getElementById("timeValue");
+var spanEl = document.querySelectorAll("span");
 
 var firstPageEl = document.getElementById("firstPage");
 var buttonsEl = document.getElementById("buttons");
@@ -33,9 +34,14 @@ var runningQuestion = 0;
 
 var correctAns;
 
+// Set time to 75 as a default
+function setTime() {
+    timeLeft = 75;
+}
+
 // Remaining time is displayed in navbar
 function displayTime() {
-    timeValueEl.textContent = "Time: " + timeLeft;
+    timeValueEl.textContent = timeLeft;
 }
 
 // If View Highscores nav link is clicked, go to displayHighscores()
@@ -46,9 +52,13 @@ navLinkEl.addEventListener("click", function () {
 
 // Displays the first page when loaded
 function firstPageFunction() {
+    navLinkEl.style.display = "block";
+    spanEl.forEach(function(element) {
+        element.style.display = "block";
+    })
     firstPageEl.style.display = "block";
     highscoresPageEl.style.display = "none";
-    timeLeft = 75;
+    timeLeft = 0;
     displayTime();
 }
 
@@ -66,15 +76,20 @@ buttonsEl.addEventListener("click", function (event) {
         if (element.innerHTML == "CSS") {
             questions = questions3;
         }
+
+        // Reset all of the variables before rendering the quiz
         lastQuestion = questions.length - 1;
         runningQuestion = 0;
         correctAns = 0;
+        timeValueEl.textContent = 75;
+
         timer();
         renderQuestion(questions, lastQuestion);
     }
 });
 
 function timer() {
+    setTime();
     timeInterval = setInterval(function () {
         timeLeft--;
 
@@ -123,9 +138,11 @@ choicesGroup.addEventListener("click", function (event) {
         }
         checkAns.style.display = "block";
 
+        // Indicator for right or wrong answer will be faded out
         setTimeout(function () {
             $('#checkAns').fadeOut('fast');
-        }, 1000);
+        }, 2000);
+
         runningQuestion++;
         renderQuestion(questions, lastQuestion);
     }
@@ -167,13 +184,16 @@ submitBtn.addEventListener("click", function () {
     scoresArr.sort((a, b) => (a.score < b.score) ? 1 : ((b.score < a.score) ? -1 : 0));
 
     userInputEl.value = "";
-
     localStorage.setItem("scores", JSON.stringify(scoresArr));
     displayHighscores();
 })
 
 // Retrieves the items in local storage
 function displayHighscores() {
+    navLinkEl.style.display = "none";
+    spanEl.forEach(function(element) {
+        element.style.display = "none";
+    })
     highscoresPageEl.style.display = "block";
     firstPageEl.style.display = "none";
     currentScorePageEl.style.display = "none";
@@ -198,7 +218,7 @@ goBackBtn.addEventListener("click", function () {
     firstPageFunction();
 });
 
-// If clear button is clicked, clear all values saved in local storage
+// If clear button is clicked, clear all values saved in local storage and array
 clearBtn.addEventListener("click", function () {
     event.preventDefault();
     localStorage.clear();
