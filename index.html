@@ -61,19 +61,11 @@
             <button type="button" class="btn btn-primary btn-lg" id="goBackBtn">Go Back</button>
             <button type="button" class="btn btn-primary btn-lg" id="clearBtn">Clear</button>
         </div>
-
     </div>
 
     <script src="./questions.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="./script.js"></script>
-    <script>
-        document.addEventListener('touchstart', function addtouchclass(e) { // first time user touches the screen
-            document.documentElement.classList.add('can-touch') // add "can-touch" class to document root using classList API
-            document.removeEventListener('touchstart', addtouchclass, false) // de-register touchstart event
-        }, false)
-    </script>
-
 </body>
 
 </html>

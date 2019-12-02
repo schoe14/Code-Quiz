@@ -4,12 +4,6 @@
     }
 }
 
-/* disable hover effect on touch devices */
-html.can-touch #choicesGroup .btn:hover{
-    background: none;
-    color: #24292e;
-}
-
 .navbar {
     background-color: #24292e;
     font-family: 'Volkhov', serif;
@@ -55,6 +49,18 @@ nav .navbar-nav li a, #timeValue, i {
     color: white;
 }
 
+/* suppress hover effect on devices that don't support hover fully */
+@media (hover:none), (hover:on-demand) {
+    #choicesGroup .btn:hover {
+        background: none;
+        color: #24292e;
+    }
+    .btn:hover {
+        background: #555555;
+        color: white;
+    }
+}
+
 .container {
     font-family: 'Public Sans', sans-serif;
     color: #24292e;
@@ -78,5 +84,4 @@ h3, p, form {
 ul {
     list-style-type: none;
     padding: 0;
-    /* background-color: white; */
 }
