@@ -17,6 +17,8 @@ var goBackBtn = document.getElementById("goBackBtn");
 var clearBtn = document.getElementById("clearBtn");
 
 var quizPageEl = document.getElementById("quizPage");
+var audio1El = document.getElementById("audio1");
+var audio2El = document.getElementById("audio2");
 var question = document.getElementById("question");
 var choicesGroup = document.getElementById("choicesGroup");
 var choiceA = document.getElementById("A");
@@ -129,10 +131,12 @@ choicesGroup.addEventListener("click", function (event) {
     let element = event.target;
     if (element.matches("button") === true) {
         if (element.innerHTML.substring(3) == questions[runningQuestion].answer) {
+            audio1El.play();
             correctAns++;
             checkAns.innerHTML = "Correct!".fontcolor("green");
         }
         else {
+            audio2El.play();
             checkAns.innerHTML = "Wrong!".fontcolor("red");
             timeLeft -= 15;
         }

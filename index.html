@@ -28,7 +28,14 @@
     <div class="container justify-content-center" id="mainContainer">
         <div class="container" id="firstPage">
             <h3>Coding Quiz Challenge</h3>
-            <p>Choose a topic for your quiz</p>
+            <p>
+                The quizzes consists of multiple-choice questions carefully designed to help you self-assess your
+                comprehension of the
+                information presented on the topics.
+                <br>
+                Each correct or incorrect response will result in appropriate feedback immediately at the bottom
+                of the screen and sound.
+            </p>
             <div id="buttons">
                 <button type="button" class="btn btn-primary btn-lg" id="javaScriptBtn">JavaScript</button>
                 <button type="button" class="btn btn-primary btn-lg" id="htmlBtn">HTML</button>
@@ -36,6 +43,12 @@
             </div>
         </div>
         <div class="container" id="quizPage" style="display: none;">
+            <audio id="audio1">
+                <source src="/Assets/CorrectSound.mp3" type="audio/mpeg">
+            </audio>
+            <audio id="audio2">
+                <source src="/Assets/WrongSound.mp3" type="audio/mpeg">
+            </audio>
             <h3 id="question"></h3>
             <ul id="choicesGroup">
                 <li><button type="button" class="btn" id="A"></button></li>

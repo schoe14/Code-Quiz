@@ -4,6 +4,10 @@
     }
 }
 
+body {
+    background-image: url("/Assets/so-white.png");
+}
+
 .navbar {
     background-color: #222831;
     font-family: 'Volkhov', serif;
