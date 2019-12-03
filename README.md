@@ -33,6 +33,8 @@ Need a quiz program for coding bootcamp students as they wish to take a timed qu
 [`Array.prototype.forEach()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
 [`Element.innerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML)
 [`WindowOrWorkerGlobalScope.setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval)
+[`Element.matches()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches)
+[`HTMLMediaElement.play()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play)
 [`WindowOrWorkerGlobalScope.setTimeout()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout)
 [`.fadeOut()`](https://api.jquery.com/fadeout/)
 [`.keypress()`](https://api.jquery.com/keypress/)
