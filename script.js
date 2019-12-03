@@ -48,6 +48,7 @@ function displayTime() {
 
 // If View Highscores nav link is clicked, go to displayHighscores()
 navLinkEl.addEventListener("click", function () {
+    event.preventDefault();
     clearInterval(timeInterval);
     displayHighscores();
 })
@@ -156,7 +157,7 @@ choicesGroup.addEventListener("click", function (event) {
 function displayScore() {
     currentScorePageEl.style.display = "block";
     quizPageEl.style.display = "none";
-    currentScoreEl.innerHTML = "Your score is " + timeLeft;
+    currentScoreEl.innerHTML = "Your score is " + timeLeft + ".";
 }
 
 // If enter key or submit button is clicked, push user input & score to array and store the array in local storage
