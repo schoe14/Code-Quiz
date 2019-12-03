@@ -50,3 +50,8 @@ Need a quiz program for coding bootcamp students as they wish to take a timed qu
 [`Document.createTextNode()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/createTextNode)
 
 # Tests
+1. Click a topic button to start quiz.
+1. As the questions are rendered, click one of the choices to see immediate feedback and audio effects.
+1. Once the quiz is over, type initials and hit enter.
+1. Repeat 1 - 2 and try to click submit button this time.
+1. When highscores are shown, click clear button to see if all of the scores are removed.
