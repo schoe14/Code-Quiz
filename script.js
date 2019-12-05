@@ -131,6 +131,7 @@ choicesGroup.addEventListener("click", function (event) {
     event.preventDefault();
     let element = event.target;
     if (element.matches("button") === true) {
+        checkAns.style.display = "block";
         if (element.innerHTML.substring(3) == questions[runningQuestion].answer) {
             audio1El.play();
             correctAns++;
@@ -141,12 +142,11 @@ choicesGroup.addEventListener("click", function (event) {
             checkAns.innerHTML = "Wrong!".fontcolor("red");
             timeLeft -= 15;
         }
-        checkAns.style.display = "block";
-
+        
         // Indicator for right or wrong answer will be faded out
         setTimeout(function () {
             $("#checkAns").fadeOut("fast");
-        }, 2000);
+        }, 1500);
 
         runningQuestion++;
         renderQuestion(questions, lastQuestion);
