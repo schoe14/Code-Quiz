@@ -5,10 +5,10 @@ Code quiz program that users can choose from three topics, which are JavaScript,
 Need a quiz program for coding bootcamp students as they wish to take a timed quiz so that they can gauge their progress compared to their peers.
 
 # Screenshots
-<a href=""><img src="https://snipboard.io/ByowJx.jpg" style="width:700px; height:auto;"></a>
-<a href=""><img src="https://snipboard.io/KWjbZ4.jpg" style="width:700px; height:auto;"></a>
-<a href=""><img src="https://snipboard.io/9AW2f6.jpg" style="width:700px; height:auto;"></a>
-<a href=""><img src="https://snipboard.io/B45HYu.jpg" style="width:700px; height:auto;"></a>
+<a href="https://schoe14.github.io/Code-Quiz/" target="_blank"><img src="https://snipboard.io/ByowJx.jpg" style="width:700px; height:auto;"></a>
+<a href="https://schoe14.github.io/Code-Quiz/" target="_blank"><img src="https://snipboard.io/KWjbZ4.jpg" style="width:700px; height:auto;"></a>
+<a href="https://schoe14.github.io/Code-Quiz/" target="_blank"><img src="https://snipboard.io/9AW2f6.jpg" style="width:700px; height:auto;"></a>
+<a href="https://schoe14.github.io/Code-Quiz/" target="_blank"><img src="https://snipboard.io/B45HYu.jpg" style="width:700px; height:auto;"></a>
 
 # Tech/framework used
 1. JavaScript
