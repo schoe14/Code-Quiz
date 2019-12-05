@@ -145,7 +145,7 @@ choicesGroup.addEventListener("click", function (event) {
 
         // Indicator for right or wrong answer will be faded out
         setTimeout(function () {
-            $('#checkAns').fadeOut('fast');
+            $("#checkAns").fadeOut("fast");
         }, 2000);
 
         runningQuestion++;
@@ -162,7 +162,7 @@ function displayScore() {
 
 // If enter key or submit button is clicked, push user input & score to array and store the array in local storage
 // Finally, go to next function (displayhighscores())
-$('#userInput').keypress(function (e) {
+$("#userInput").keypress(function (e) {
     var key = e.which;
     if (key == 13) {
         submitBtn.click();
