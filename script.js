@@ -36,7 +36,7 @@ var runningQuestion = 0;
 
 var correctAns;
 
-// Set time to 75 as a default
+// Set time to 75 secs as a default
 function setTime() {
     timeLeft = 75;
 }
@@ -126,7 +126,7 @@ function renderQuestion(questions, lastQuestion) {
 }
 
 // While users get to choose answer, check if the answer is correct
-// If the answer is wrong, subtract 15 sec from the remaining time
+// If the answer is wrong, subtract 15 secs from the remaining time
 choicesGroup.addEventListener("click", function (event) {
     event.preventDefault();
     let element = event.target;
